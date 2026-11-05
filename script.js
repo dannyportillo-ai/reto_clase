@@ -1,26 +1,62 @@
-// Datos de pruebas iniciales 
+// Variables de entrada
+
 let entrada_nombre = "  cARLOS aLBERTO  ";
 let entrada_correo = "carlos.alberto@DOMINIO.COM";
 let entrada_edad = "24";
 let entrada_codigo_promo = "DESC-2026-X";
 
-//limpieza de los datos
+//Limpieza de los datos
+
  let limpieza = entrada_nombre.trim().toLowerCase().split(" ");
- console.log(limpieza);
 
-// limpieza[0] = limpieza[0].slice(0, 1).toUpperCase() + limpieza[0].slice(1);
-// limpieza[1] = limpieza[1].slice(0, 1).toUpperCase() + limpieza[1].slice(1);
+limpieza[0] = limpieza[0].slice(0, 1).toUpperCase() + limpieza[0].slice(1);
+limpieza[1] = limpieza[1].slice(0, 1).toUpperCase() + limpieza[1].slice(1); 
 
-// console.log(limpieza);
+limpieza = limpieza.join(" ");
 
-// //validacion de correo
-// let validor_correo = entrada_correo.toLowerCase();
-// let correo_validado = validor_correo.includes("@") && validor_correo.includes(".com");
+//Validacion de correo
 
-// //validacion de codigo
-// let validar_codigo = entrada_codigo_promo.startsWith("DESC");
-// let validar_año =  entrada_codigo_promo.slice(5, 9);
+let validar_correo = entrada_correo.toLowerCase();
+let correo_validado = validar_correo.includes("@") && validar_correo.includes(".com");
 
+//Validacion de codigo
 
+let validar_codigo = entrada_codigo_promo.startsWith("DESC");
+let validar_numero =  entrada_codigo_promo.slice(5, 9);
 
+//Convertir string a numeros enteros
 
+let edad = Number(entrada_edad);
+let año = Number(entrada_codigo_promo.slice(5, 9));
+
+//Mayor o igual a 18 años
+
+let mayor_edad = edad >= 18;
+
+//validez del correo
+
+let validez_correo = entrada_correo.toLowerCase();
+let correo_echo = validez_correo.includes("@") && validez_correo.includes(".com");
+
+//Año aproximado de nacimiento
+
+let año_nacimiento = 2026 - edad;
+
+//Asignacion de puntos promocionales
+
+let puntos = (mayor_edad && año == 2026) ? 10.5 : 0.0;
+
+console.log(`
+    ==================================================
+        FICHA DE USUARIO PROCESADA
+    ==================================================
+    Nombre Formateado : ${limpieza}
+    Correo Validado : ${validez_correo}
+    ¿Correo valido? : ${correo_echo}
+    Edad Registrada : ${edad} (Tipo: number)
+    ¿Mayor de edad? : ${mayor_edad}
+    Año Estimado Nto : ${año_nacimiento}
+    Codigo Cupon Valido : ${validar_codigo}
+    Puntos Asignados : ${puntos}
+    =================================================
+    `)
