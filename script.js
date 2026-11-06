@@ -11,7 +11,6 @@ let entrada_codigo_promo = "DESC-2026-X";
 
 limpieza[0] = limpieza[0].slice(0, 1).toUpperCase() + limpieza[0].slice(1);
 limpieza[1] = limpieza[1].slice(0, 1).toUpperCase() + limpieza[1].slice(1); 
-
 limpieza = limpieza.join(" ");
 
 //Validacion de correo
@@ -33,11 +32,6 @@ let año = Number(entrada_codigo_promo.slice(5, 9));
 
 let mayor_edad = edad >= 18;
 
-//validez del correo
-
-let validez_correo = entrada_correo.toLowerCase();
-let correo_echo = validez_correo.includes("@") && validez_correo.includes(".com");
-
 //Año aproximado de nacimiento
 
 let año_nacimiento = 2026 - edad;
@@ -50,13 +44,13 @@ console.log(`
     ==================================================
         FICHA DE USUARIO PROCESADA
     ==================================================
-    Nombre Formateado : ${limpieza}
-    Correo Validado : ${validez_correo}
-    ¿Correo valido? : ${correo_echo}
-    Edad Registrada : ${edad} (Tipo: number)
-    ¿Mayor de edad? : ${mayor_edad}
-    Año Estimado Nto : ${año_nacimiento}
+    Nombre Formateado   : ${limpieza}
+    Correo Validado     : ${validar_correo}
+    ¿Correo valido?     : ${correo_validado}
+    Edad Registrada     : ${edad} (Tipo: int)
+    ¿Mayor de edad?     : ${mayor_edad}
+    Año Estimado Nto    : ${año_nacimiento}
     Codigo Cupon Valido : ${validar_codigo}
-    Puntos Asignados : ${puntos}
+    Puntos Asignados    : ${puntos}
     =================================================
     `)
