@@ -16,7 +16,7 @@ limpieza = limpieza.join(" ");
 //Validacion de correo
 
 let validar_correo = entrada_correo.toLowerCase();
-let correo_validado = validar_correo.includes("@") && validar_correo.includes(".com");
+let correo_validado = validar_correo.includes("@") && validar_correo.endsWith(".com");
 
 //Validacion de codigo
 
